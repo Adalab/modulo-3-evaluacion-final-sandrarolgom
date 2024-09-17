@@ -4,7 +4,7 @@ const getDataApi = ()=>{
         .then(data => {
             const arrayData = data.map(item => {
                 return{
-                    image: item.image,
+                    image: item.image || "https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter",
                     name: item.name,
                     species: item.species
                 }

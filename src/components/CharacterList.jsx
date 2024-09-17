@@ -1,6 +1,16 @@
-function CharacterList() {
+import CharacterCard from "./CharacterCard"
+
+function CharacterList({listCharacters}) {
+    //recorrer el array
+    const htmlListCharacters = () => {
+        return listCharacters.map((item, i) => ( <CharacterCard key={i} character={item}/>
+            
+        ))
+    }
   return (
-    <div>CharacterList</div>
+    <div className="container">
+        {htmlListCharacters()}
+    </div>
   )
 }
 
