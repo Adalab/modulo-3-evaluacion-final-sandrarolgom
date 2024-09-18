@@ -1,7 +1,10 @@
+import FilterCharacter from "./FilterCharacter"
 
-function Filters() {
+function Filters({changeInput}) {
   return (
-    <div>Filters</div>
+    <form>
+      <FilterCharacter changeInput={changeInput}/>
+    </form>
   )
 }
 

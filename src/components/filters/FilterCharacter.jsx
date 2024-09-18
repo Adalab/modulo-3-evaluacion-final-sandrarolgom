@@ -1,7 +1,14 @@
+function FilterCharacter({changeInput}) {
+  //función manejadora del evento onchange
+  const handleChangeName = (ev) => {
+    changeInput(ev.target.value)
+  }
 
-function FilterCharacter() {
   return (
-    <div>FilterCharacter</div>
+    <>
+    <label>Busca por personaje:</label>
+    <input type="text" onChange={handleChangeName} />
+    </>
   )
 }
 
