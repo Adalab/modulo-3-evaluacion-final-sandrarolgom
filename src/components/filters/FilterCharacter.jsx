@@ -1,6 +1,7 @@
 function FilterCharacter({changeInput}) {
   //función manejadora del evento onchange
   const handleChangeName = (ev) => {
+    ev.preventDefault();
     changeInput(ev.target.value)
   }
 

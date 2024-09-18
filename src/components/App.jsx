@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
 import '../scss/index.scss';
 import getDataApi from '../services/api.js'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, matchPath} from 'react-router-dom';
 import CharacterList from './CharacterList.jsx';
 import Filters from './filters/Filters.jsx';
+import CharacterDetail from './CharacterDetail.jsx';
 
 function App() {
   //VARIABLES DE ESTADO-----
   const [listCharacters, setListCharacters] = useState([]);
   //variable de estado para guardar el valor del input
-  const [inputValue, setImputValue] = useState('');
-  //variable de estado para guaradr el value del select
+  const [inputValue, setInputValue] = useState('');
+  //variable de estado para guardar el value del select
   const [selectValue, setSelectValue] = useState('gryffindor');
 
   //FUNCIONES---------------
@@ -21,7 +22,7 @@ function App() {
 
   //función para meter el valor del input en la variable de estado
   const changeInput = (value) => {
-    setImputValue(value)
+    setInputValue(value)
   }
 
   //función para meter el valor del select en la variable de estado
@@ -32,7 +33,16 @@ function App() {
   //función del filtrado del array original
   const filterCharacter = listCharacters.filter(item=>item.name.toLowerCase().includes(inputValue.toLowerCase()))
 
-
+   
+  //crear una constante para recoger la ruta en la que estoy parada
+  const {pathname} = useLocation();
+  //como hay diferentes rutas, nos interesa información de la ruta solo si es la ruta dinámica, hacemos una validación: si la ruta del path coincide con la de pathname, entonces quiero sacar el (nombre) y si no, no quiero sacar nada
+  const characterRoute = matchPath("/detail/:id", pathname)
+  //cuando lo anterior devuelva verdadero, voy a coger el nombre :name
+  const nameCharacter = characterRoute ? characterRoute.params.id : null
+  //de mi array, buscame(por cada item ==> búscame el item cuyo name sea === al name que saqué de la ruta)
+  const character = listCharacters.find(item=>item.id === nameCharacter)
+  
   return (
     <Routes>
       <Route path='/' element={
@@ -44,6 +54,8 @@ function App() {
         <CharacterList listCharacters={filterCharacter}/>
         </>
       }/>
+      {/* crear la ruta al componente details */}
+      <Route path="/detail/:id" element={<CharacterDetail data={character}/>}/>
     </Routes>
   );
 }

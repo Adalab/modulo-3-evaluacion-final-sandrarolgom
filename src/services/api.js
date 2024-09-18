@@ -6,7 +6,12 @@ const getDataApi = (value)=>{
                 return{
                     image: item.image || "https://via.placeholder.com/210x295/ffffff/666666/?text=HarryPotter",
                     name: item.name,
-                    species: item.species
+                    species: item.species,
+                    id: item.id,
+                    house: item.house,
+                    gender: item.gender,
+                    alternate_names: item.alternate_names,
+                    alive: item.alive ? 'Viva' : 'Muerta'
                 }
             });
             return arrayData            
