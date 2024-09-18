@@ -1,6 +1,6 @@
 import CharacterCard from "./CharacterCard"
 
-function CharacterList({listCharacters}) {
+function CharacterList({listCharacters, inputValue}) {
     //recorrer el array
     const htmlListCharacters = () => {
         return listCharacters.map((item, i) => ( <CharacterCard key={i} character={item}/>
@@ -9,7 +9,9 @@ function CharacterList({listCharacters}) {
     }
   return (
     <div className="container">
-        {htmlListCharacters()}
+      {listCharacters.length === 0 ? (
+        <p>{`No hay ningún personaje que coincida con ${inputValue}`}</p>
+      ) : (htmlListCharacters())}
     </div>
   )
 }

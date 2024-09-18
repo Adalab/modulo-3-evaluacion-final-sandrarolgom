@@ -50,8 +50,12 @@ function App() {
         <header className='header'><img className='header__logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/800px-Harry_Potter_wordmark.svg.png" alt="" /></header>
         <Filters
         changeInput={changeInput}
-        changeSelect={changeSelect} />
-        <CharacterList listCharacters={filterCharacter}/>
+        changeSelect={changeSelect}
+        inputValue={inputValue} />
+        <CharacterList 
+        listCharacters={filterCharacter}
+        inputValue={inputValue}
+        />
         </>
       }/>
       {/* crear la ruta al componente details */}

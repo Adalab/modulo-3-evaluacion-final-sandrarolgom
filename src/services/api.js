@@ -1,4 +1,14 @@
 const getDataApi = (value)=>{
+    const genderText = (gender) => {
+        if (gender === 'male'){
+            return 'Masculino'
+        } else if(gender === 'female'){
+            return  'Femenino'
+        } else{
+            return 'Desconocido'
+        }
+    }
+
     return fetch(`https://hp-api.onrender.com/api/characters/house/${value}`)
         .then(response=>response.json())
         .then(data => {
@@ -9,7 +19,7 @@ const getDataApi = (value)=>{
                     species: item.species,
                     id: item.id,
                     house: item.house,
-                    gender: item.gender,
+                    gender: genderText(item.gender),
                     alternate_names: item.alternate_names,
                     alive: item.alive ? 'Viva' : 'Muerta'
                 }
