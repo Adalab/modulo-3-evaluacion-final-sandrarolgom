@@ -52,4 +52,10 @@ body {
     }
   }
 }
-
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+}

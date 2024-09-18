@@ -6,20 +6,27 @@ import CharacterList from './CharacterList.jsx';
 import Filters from './filters/Filters.jsx';
 
 function App() {
-  //VARIABLES DE ESTADO
+  //VARIABLES DE ESTADO-----
   const [listCharacters, setListCharacters] = useState([]);
   //variable de estado para guardar el valor del input
   const [inputValue, setImputValue] = useState('');
+  //variable de estado para guaradr el value del select
+  const [selectValue, setSelectValue] = useState('gryffindor');
 
-  //FUNCIONES
+  //FUNCIONES---------------
   //función de ejecutar a getDataApi
   useEffect(()=>{
-    getDataApi().then( (arrayData) => setListCharacters(arrayData))
-  },[])
+    getDataApi(selectValue).then( (arrayData) => setListCharacters(arrayData))
+  },[selectValue])
 
   //función para meter el valor del input en la variable de estado
   const changeInput = (value) => {
     setImputValue(value)
+  }
+
+  //función para meter el valor del select en la variable de estado
+  const changeSelect = (value) => {
+    setSelectValue(value)
   }
 
   //función del filtrado del array original
@@ -32,7 +39,8 @@ function App() {
         <>
         <header className='header'><img className='header__logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/800px-Harry_Potter_wordmark.svg.png" alt="" /></header>
         <Filters
-        changeInput={changeInput} />
+        changeInput={changeInput}
+        changeSelect={changeSelect} />
         <CharacterList listCharacters={filterCharacter}/>
         </>
       }/>

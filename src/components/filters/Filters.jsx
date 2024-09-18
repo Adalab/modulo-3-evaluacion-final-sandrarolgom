@@ -1,9 +1,11 @@
 import FilterCharacter from "./FilterCharacter"
+import FilterHouse from "./FilterHouse"
 
-function Filters({changeInput}) {
+function Filters({changeInput, changeSelect}) {
   return (
-    <form>
+    <form className="form">
       <FilterCharacter changeInput={changeInput}/>
+      <FilterHouse changeSelect={changeSelect} />
     </form>
   )
 }

@@ -6,8 +6,8 @@ function FilterCharacter({changeInput}) {
 
   return (
     <>
-    <label>Busca por personaje:</label>
-    <input type="text" onChange={handleChangeName} />
+    <label htmlFor="name">Busca por personaje:</label>
+    <input name="name" type="text" onChange={handleChangeName} />
     </>
   )
 }
