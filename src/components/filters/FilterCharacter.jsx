@@ -16,6 +16,7 @@ function FilterCharacter({ changeInput, inputValue }) {
         name="name"
         value={inputValue}
         type="text"
+        placeholder="escribe el nombre del personaje aquí"
         onChange={handleChangeName}
         onKeyDown={handleKeyDown}
       />

@@ -14,8 +14,8 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   //variable de estado para guardar el value del select
   const [selectValue, setSelectValue] = useState("gryffindor");
-  //variable de estado para guardar el value del checkbox
-  const [checkValue, setCheckValue] = useState("");
+  //variable de estado para guardar el value del radio
+  const [radioValue, setRadioValue] = useState("all");
 
   //FUNCIONES---------------
   //función de ejecutar a getDataApi
@@ -37,9 +37,9 @@ function App() {
     setSelectValue(value);
   };
 
-  //función para meter el valor del check en la variable de estado
-  const changeCheckbox = (value) => {
-    setCheckValue(value);
+  //función para meter el valor del radio en la variable de estado
+  const changeRadio = (value) => {
+    setRadioValue(value);
   };
 
   //función del filtrado del array original por nombre
@@ -49,17 +49,20 @@ function App() {
     )
     //filtrado por vivo o muerto
     .filter((item) => {
-      if (checkValue === "true") {
-        return item.alive === "Viva";
-      } else {
-        return item.alive === "Muerta";
+      if (radioValue === "all") {
+        return true; // Mostrar todos los personajes
+      } else if (radioValue === "true") {
+        return item.alive === "Vivo";
+      } else if (radioValue === "false") {
+        return item.alive === "Muerto";
       }
     });
 
   //función para pasar la variable de estado a vacía y volver a pintar el array original
   const resetCharacter = () => {
     setInputValue("");
-    setListCharacters(listCharacters);
+    setSelectValue("gryffindor")
+    setRadioValue("all");
   };
 
   //crear una constante para recoger la ruta en la que estoy parada
@@ -87,8 +90,11 @@ function App() {
             <Filters
               changeInput={changeInput}
               changeSelect={changeSelect}
-              changeCheck={changeCheckbox}
+              changeRadio={changeRadio}
               inputValue={inputValue}
+              selectValue={selectValue}
+              radioValue={radioValue}
+
             />
             <ResetButton resetCharacter={resetCharacter} />
             <CharacterList
