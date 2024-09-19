@@ -5,18 +5,22 @@ function CharacterDetail({ data }) {
   return (
     <div>
       {data ? (
-        <article className="detail">
-          <Link to="/" className="detail__link">
-            volver
-          </Link>
-          <img className="detail__img" src={data.image} alt="" />
-          <h4 className="detail__title">{data.name}</h4>
-          <p className="detail__p">{data.house}</p>
-          <p className="detail__p">{data.species}</p>
-          <p className="detail__p">{data.gender}</p>
-          <p className="detail__p">{data.alternate_names}</p>
-          <p className="detail__p">{data.alive}</p>
+        <section className="containerDetail">
+        <Link to="/" className="containerDetail__link">
+        volver
+      </Link>
+        <article className="containerDetail__detail">
+          <img className="containerDetail__detail--img" src={data.image} alt="" />
+          <div>
+          <h4>{data.name}</h4>
+          <p>{data.house}</p>
+          <p>{data.species}</p>
+          <p>{data.gender}</p>
+          <p>{data.alternate_names}</p>
+          <p>{data.alive}</p>
+          </div>
         </article>
+        </section>  
       ) : <p>El personaje que buscas no existe</p>}
     </div>
   );
