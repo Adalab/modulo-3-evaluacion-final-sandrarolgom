@@ -18,7 +18,11 @@ function App() {
   //FUNCIONES---------------
   //función de ejecutar a getDataApi
   useEffect(()=>{
-    getDataApi(selectValue).then((arrayData) => setListCharacters(arrayData))
+    getDataApi(selectValue).then((arrayData) =>{
+      //funcionalidad orden alfabético
+      const sortedData = arrayData.sort((a,b) => a.name.localeCompare(b.name));
+      setListCharacters(sortedData);
+    })
   },[selectValue])
 
   //función para meter el valor del input en la variable de estado
