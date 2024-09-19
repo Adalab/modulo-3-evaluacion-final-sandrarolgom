@@ -20,8 +20,9 @@ function CharacterDetail({ data }) {
           <p>{data.alive}</p>
           </div>
         </article>
-        </section>  
-      ) : <p>El personaje que buscas no existe</p>}
+        </section>  ) : <><Link to="/" className="containerDetail__link">
+        volver
+      </Link><p>⚠ ERROR: el personaje que buscas no existe  ⚠</p></>}
     </div>
   );
 }

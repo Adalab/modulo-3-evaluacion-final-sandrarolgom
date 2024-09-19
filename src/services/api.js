@@ -21,7 +21,7 @@ const getDataApi = (value)=>{
                     house: item.house,
                     gender: genderText(item.gender),
                     alternate_names: item.alternate_names,
-                    alive: item.alive ? 'Vivo' : 'Muerto'
+                    alive: item.alive ? 'Vivo' : 'Muerto ☠'
                 }
             });
             return arrayData            
