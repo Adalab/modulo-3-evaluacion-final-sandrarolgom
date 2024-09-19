@@ -18,6 +18,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+  text-align: center;
 }
 .header{
   width: 100vw;
@@ -51,6 +52,9 @@ body {
       font-weight: bold;
     }
   }
+}
+.reset {
+  margin-bottom: 20px;
 }
 .form {
   display: flex;

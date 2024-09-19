@@ -1,0 +1,21 @@
+.detail {
+    background-color: burlywood;
+    color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &__link{
+        text-decoration: none;
+        color: black;
+    }
+    &__img{
+        
+    }
+    &__title{
+        
+    }
+    &__p{
+        
+    }
+}

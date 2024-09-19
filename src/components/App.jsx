@@ -5,6 +5,7 @@ import { Route, Routes, useLocation, matchPath} from 'react-router-dom';
 import CharacterList from './CharacterList.jsx';
 import Filters from './filters/Filters.jsx';
 import CharacterDetail from './CharacterDetail.jsx';
+import ResetButton from './ResetButton.jsx';
 
 function App() {
   //VARIABLES DE ESTADO-----
@@ -17,7 +18,7 @@ function App() {
   //FUNCIONES---------------
   //función de ejecutar a getDataApi
   useEffect(()=>{
-    getDataApi(selectValue).then( (arrayData) => setListCharacters(arrayData))
+    getDataApi(selectValue).then((arrayData) => setListCharacters(arrayData))
   },[selectValue])
 
   //función para meter el valor del input en la variable de estado
@@ -33,6 +34,11 @@ function App() {
   //función del filtrado del array original
   const filterCharacter = listCharacters.filter(item=>item.name.toLowerCase().includes(inputValue.toLowerCase()))
 
+  //función para pasar la variable de estado a vacía y volver a pintar el array original
+  const resetCharacter = () => {
+    setInputValue('');
+    setListCharacters(listCharacters)
+  }
    
   //crear una constante para recoger la ruta en la que estoy parada
   const {pathname} = useLocation();
@@ -52,6 +58,7 @@ function App() {
         changeInput={changeInput}
         changeSelect={changeSelect}
         inputValue={inputValue} />
+        <ResetButton resetCharacter={resetCharacter}/>
         <CharacterList 
         listCharacters={filterCharacter}
         inputValue={inputValue}

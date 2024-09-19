@@ -4,7 +4,6 @@ function CharacterList({listCharacters, inputValue}) {
     //recorrer el array
     const htmlListCharacters = () => {
         return listCharacters.map((item, i) => ( <CharacterCard key={i} character={item}/>
-            
         ))
     }
   return (
