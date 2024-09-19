@@ -17,7 +17,7 @@ function CharacterDetail({ data }) {
           <p className="detail__p">{data.alternate_names}</p>
           <p className="detail__p">{data.alive}</p>
         </article>
-      ) : null}
+      ) : <p>El personaje que buscas no existe</p>}
     </div>
   );
 }
