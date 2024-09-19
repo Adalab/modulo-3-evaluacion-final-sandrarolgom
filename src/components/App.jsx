@@ -52,9 +52,9 @@ function App() {
       if (radioValue === "all") {
         return true; // Mostrar todos los personajes
       } else if (radioValue === "true") {
-        return item.alive === "Vivo";
+        return item.alive === "Vivo ♡";
       } else if (radioValue === "false") {
-        return item.alive === "Muerto";
+        return item.alive === "Muerto ☠";
       }
     });
 
